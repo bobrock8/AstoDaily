@@ -9,12 +9,14 @@ export default function Home() {
         <Logo />
         <Navigation />
       </header>
-      <main className="flex  flex-col items-center justify-between p-24">
-        <article>
-          <h1>Photo of the day</h1>
-        </article>
-      </main>
-      <aside>Last 3 days photos</aside>
+      <div className="flex flex-row p-4">
+        <main className="basis-2/3">
+          <article>
+            <h1>Photo of the day</h1>
+          </article>
+        </main>
+        <aside className="basis-1/3">Last 3 days photos</aside>
+      </div>
       <footer></footer>
     </div>
   );
