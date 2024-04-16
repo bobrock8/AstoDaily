@@ -4,9 +4,15 @@ const Navigation = () => {
   return (
     <nav>
       <ul>
-        <Link href="/">home</Link>
-        <Link href="/apod">apod</Link>
-        <Link href="/insight">weather forecast on mars</Link>
+        <Link className="mx-5" href="/">
+          home
+        </Link>
+        <Link className="mx-5" href="/apod">
+          apod
+        </Link>
+        <Link className="mx-5" href="/insight">
+          weather forecast on mars
+        </Link>
       </ul>
     </nav>
   );
