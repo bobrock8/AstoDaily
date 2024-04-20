@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Navigation from "./_components/navigation";
 import Logo from "./_components/logo";
-import { run } from "./lib/mongodb";
+import { getApod } from "./_api/apod";
 
 export default function Home() {
-  run().catch(console.dir);
-  console.log("ACA");
+
+  getApod();
+
   return (
     <div>
       <header className="flex flex-row items-center justify-between p-4">
