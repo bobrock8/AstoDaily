@@ -1,5 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next/dist/shared/lib/utils";
-import { client as dbClient } from "../lib/mongodb";
+import { dbClient } from "../lib/mongodb";
 
 const getApod = async () => {
   if (!process.env.DB_NAME || !process.env.DB_COLLECTION) {
@@ -19,6 +18,8 @@ const getApod = async () => {
     console.log(images);
   } catch (e) {
     console.error(e);
+  } finally {
+    await dbClient.close();
   }
 };
 
