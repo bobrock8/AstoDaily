@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Navigation from "./_components/navigation";
 import Logo from "./_components/logo";
-import { getApod } from "./_api/apod";
+import { getAllApods } from "./db/getAllApods";
+import { getLastApod } from "./db/getLastApod";
+import { saveApod } from "./db/saveApod";
 
-export default function Home() {
-
-  getApod();
-
+export default async function Home() {
+  const apods = await saveApod();
   return (
     <div>
       <header className="flex flex-row items-center justify-between p-4">
