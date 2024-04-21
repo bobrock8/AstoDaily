@@ -4,9 +4,12 @@ import Logo from "./_components/logo";
 import { getAllApods } from "./db/getAllApods";
 import { getLastApod } from "./db/getLastApod";
 import { saveApod } from "./db/saveApod";
+import { runAgenda } from "./lib/agenda";
 
 export default async function Home() {
+  console.log("HOME");
   const apods = await saveApod();
+  runAgenda();
   return (
     <div>
       <header className="flex flex-row items-center justify-between p-4">
