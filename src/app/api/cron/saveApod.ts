@@ -1,7 +1,7 @@
 import { Collection } from "mongodb";
-import { fetchApod } from "../api/fetchApod";
-import { getDb } from "../lib/mongodb";
-import { getDate } from "./helper";
+import { fetchApod } from "../fetchApod";
+import { getDb } from "../../lib/mongodb";
+import { getDate } from "../../db/helper";
 
 const saveApod = async () => {
   if (!process.env.DB_NAME || !process.env.DB_COLLECTION) {
