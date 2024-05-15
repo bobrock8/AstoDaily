@@ -9,7 +9,11 @@ const getApodUrl = () => {
 
 const fetchApod = async () => {
   try {
-    const response = await fetch(getApodUrl());
+    const response = await fetch(getApodUrl(), {
+      headers: {
+        "Cache-Control": "no-cache",
+      },
+    });
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }
