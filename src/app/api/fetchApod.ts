@@ -10,8 +10,10 @@ const getApodUrl = () => {
 };
 
 const fetchApod = async () => {
+  const url = getApodUrl();
+  console.log("URL", url);
   try {
-    const response = await fetch(getApodUrl(), {
+    const response = await fetch(url, {
       headers: {
         "Cache-Control": "no-cache",
       },
