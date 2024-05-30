@@ -13,11 +13,7 @@ const fetchApod = async () => {
   const url = getApodUrl();
   console.log("URL", url);
   try {
-    const response = await fetch(url, {
-      headers: {
-        "Cache-Control": "no-cache",
-      },
-    });
+    const response = await fetch(url, { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error("Failed to fetch data");
