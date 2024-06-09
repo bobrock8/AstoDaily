@@ -6,7 +6,9 @@ const getApodUrl = () => {
   if (!apiKey) {
     throw new Error("Apod api key is missing from .env.local");
   }
-  return APOD_URL + "?date=" + getDate() + "&api_key=" + apiKey;
+  const date = getDate();
+  console.log("Generating URL for Date:", date);
+  return APOD_URL + "?date=" + date + "&api_key=" + apiKey;
 };
 
 const fetchApod = async () => {
@@ -14,7 +16,7 @@ const fetchApod = async () => {
   console.log("URL", url);
   try {
     const response = await fetch(url, { cache: "no-store" });
-
+    console.log("Response status", response.status);
     if (!response.ok) {
       throw new Error("Failed to fetch data");
     }

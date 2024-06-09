@@ -16,9 +16,10 @@ const saveApod = async () => {
     const imagesCollection: Collection<APOD> = (await getDb()).collection(
       process.env.DB_COLLECTION
     );
-
+    const currentDate = getDate(); // Fetch current date dynamically
+    console.log("Checking for existing record on:", currentDate);
     const isAlreadyAdded = await imagesCollection
-      .find({ date: getDate() })
+      .find({ date: currentDate })
       .toArray();
     if (image && isAlreadyAdded.length === 0) {
       await imagesCollection.insertOne(image);
